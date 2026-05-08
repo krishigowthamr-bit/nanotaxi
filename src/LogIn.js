@@ -18,7 +18,7 @@ const styles = `
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 42%;
-    background: linear-gradient(160deg, #19C37D 0%, #19C37D 100%);
+    background: linear-gradient(160deg, #2ecc71 0%, #17a850 100%);
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     padding-bottom: 36px;
@@ -95,17 +95,17 @@ const styles = `
     background: #fafafa;
     font-family: 'Poppins', sans-serif;
     font-weight: 600; font-size: 0.9rem;
-    color: #19C37D;
+    color: #17a850;
     cursor: pointer;
     transition: all 0.2s;
   }
 
   .lp-tab.active {
-    background: #19C37D; border-color: #19C37D; color: #fff;
+    background: #17a850; border-color: #17a850; color: #fff;
     box-shadow: 0 3px 12px rgba(23,168,80,0.26);
   }
 
-  .lp-tab:not(.active):hover { border-color: #19C37D; background: #f0fdf4; }
+  .lp-tab:not(.active):hover { border-color: #17a850; background: #f0fdf4; }
 
   /* ── INPUT ── */
   .lp-input-wrap {
@@ -116,7 +116,7 @@ const styles = `
     transition: border-color 0.2s, background 0.2s;
   }
 
-  .lp-input-wrap:focus-within { border-color: #19C37D; background: #f0fdf4; }
+  .lp-input-wrap:focus-within { border-color: #17a850; background: #f0fdf4; }
 
   .lp-icon { font-size: 1.05rem; color: #bbb; flex-shrink: 0; }
 
@@ -144,19 +144,19 @@ const styles = `
     background: #f6f6f6;
     font-family: 'Poppins', sans-serif;
     font-size: 1.3rem; font-weight: 700;
-    color: #19C37D; text-align: center; outline: none;
+    color: #17a850; text-align: center; outline: none;
     transition: border-color 0.2s;
   }
 
-  .lp-otp-box:focus { border-color: #19C37D; background: #f0fdf4; }
+  .lp-otp-box:focus { border-color: #17a850; background: #f0fdf4; }
 
   .lp-resend { text-align: center; font-size: 0.82rem; color: #999; margin-bottom: 10px; }
-  .lp-resend span { color: #19C37D; font-weight: 700; cursor: pointer; }
+  .lp-resend span { color: #17a850; font-weight: 700; cursor: pointer; }
 
   /* ── BUTTON ── */
   .lp-btn {
     width: 100%;
-    background: linear-gradient(135deg, #19C37D 0%, #19C37D 100%);
+    background: linear-gradient(135deg, #2ecc71 0%, #17a850 100%);
     color: #fff; border: none; border-radius: 12px;
     padding: 13px;
     font-family: 'Poppins', sans-serif;
@@ -179,13 +179,18 @@ const styles = `
     color: #999; margin-bottom: 7px; font-weight: 500;
   }
 
-  .lp-link-row a { color: #19C37D; font-weight: 700; text-decoration: none; cursor: pointer; }
-  .lp-link-row a:hover { text-decoration: underline; }
+  .lp-link-row a, .lp-inline-btn {
+    color: #17a850; font-weight: 700;
+    text-decoration: none; cursor: pointer;
+    background: none; border: none; padding: 0;
+    font-family: 'Nunito', sans-serif; font-size: 0.85rem;
+  }
+  .lp-link-row a:hover, .lp-inline-btn:hover { text-decoration: underline; }
 
   /* ── STEP DOTS ── */
   .lp-step-hint { display: flex; align-items: center; gap: 5px; margin-bottom: 12px; }
   .lp-step-dot { width: 7px; height: 7px; border-radius: 50%; background: #e0e0e0; transition: all 0.2s; }
-  .lp-step-dot.active { background: #19C37D; width: 18px; border-radius: 4px; }
+  .lp-step-dot.active { background: #17a850; width: 18px; border-radius: 4px; }
 
   /* ── ANIMATION ── */
   @keyframes lpFadeIn {
@@ -290,9 +295,9 @@ export default function LogIn() {
                 </div>
               </div>
               <button className="lp-btn" disabled={!isLoginReady}>Login →</button>
-              <div className="lp-link-row">Forgot your password? <a onClick={() => switchView(VIEW.RESET)}>Reset it</a></div>
+              <div className="lp-link-row">Forgot your password? <button className="lp-inline-btn" onClick={() => switchView(VIEW.RESET)}>Reset it</button></div>
               <div className="lp-divider" />
-              <div className="lp-link-row">Don't have an account? <a onClick={() => switchView(VIEW.SIGNUP)}>Sign Up</a></div>
+              <div className="lp-link-row">Don't have an account? <button className="lp-inline-btn" onClick={() => switchView(VIEW.SIGNUP)}>Sign Up</button></div>
             </>
           )}
 
@@ -312,8 +317,8 @@ export default function LogIn() {
               <button className="lp-btn" disabled={!isSendOtpReady} onClick={() => setStep(STEP.OTP)}>Send OTP →</button>
               <div className="lp-divider" />
               {view === VIEW.SIGNUP
-                ? <div className="lp-link-row">Already have an account? <a onClick={() => switchView(VIEW.LOGIN)}>Login</a></div>
-                : <div className="lp-link-row">Remembered it? <a onClick={() => switchView(VIEW.LOGIN)}>Login</a></div>
+                ? <div className="lp-link-row">Already have an account? <button className="lp-inline-btn" onClick={() => switchView(VIEW.LOGIN)}>Login</button></div>
+                : <div className="lp-link-row">Remembered it? <button className="lp-inline-btn" onClick={() => switchView(VIEW.LOGIN)}>Login</button></div>
               }
             </>
           )}
@@ -322,7 +327,7 @@ export default function LogIn() {
           {view !== VIEW.LOGIN && step === STEP.OTP && (
             <div className="lp-animate">
               <div className="lp-otp-label">
-                OTP sent to <strong style={{ color: "#19C37D" }}>{contactVal}</strong>
+                OTP sent to <strong style={{ color: "#17a850" }}>{contactVal}</strong>
               </div>
               <div className="lp-otp-row">
                 {otp.map((d, i) => (
@@ -337,7 +342,7 @@ export default function LogIn() {
               <button className="lp-btn" disabled={!isOtpComplete}>
                 {view === VIEW.SIGNUP ? "Verify & Sign Up →" : "Verify & Reset →"}
               </button>
-              <div className="lp-link-row"><a onClick={() => setStep(STEP.FORM)}>← Change {tab === TAB.EMAIL ? "email" : "number"}</a></div>
+              <div className="lp-link-row"><button className="lp-inline-btn" onClick={() => setStep(STEP.FORM)}>← Change {tab === TAB.EMAIL ? "email" : "number"}</button></div>
             </div>
           )}
 
