@@ -78,6 +78,8 @@ const styles = `
     flex-shrink: 0;
   }
 
+  .hm-sb-user { display: flex; align-items: center; gap: 10px; }
+
   .hm-sb-login-btn {
     width: 100%; padding: 11px;
     background: #fff; color: ${G};
@@ -94,18 +96,13 @@ const styles = `
 
   .hm-topbar {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 32px 18px;
-    border-bottom: 1.5px solid #f0f0f0;
+    padding: 20px 32px 16px;
+    border-bottom: 1px solid #f0f0f0;
     flex-shrink: 0;
-    background: #fff;
   }
 
-  .hm-topbar-title {
-    font-family: 'Poppins', sans-serif; font-weight: 800;
-    font-size: 1.3rem; color: #111;
-  }
-
-  .hm-topbar-sub { font-size: 0.82rem; color: #bbb; margin-top: 3px; font-weight: 500; }
+  .hm-topbar-title { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.2rem; color: #111; }
+  .hm-topbar-sub { font-size: 0.8rem; color: #999; margin-top: 2px; font-weight: 500; }
 
   .hm-pricing-btn {
     display: inline-flex; align-items: center; gap: 7px;
@@ -127,47 +124,18 @@ const styles = `
   .hm-body::-webkit-scrollbar { width: 4px; }
   .hm-body::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 4px; }
 
-  .hm-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hm-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-  .hm-stat {
-    background: linear-gradient(135deg, #f8fffe 0%, #f0fdf6 100%);
-    border: 1.5px solid #d6f5e6;
-    border-radius: 16px; padding: 20px 22px;
-    display: flex; flex-direction: column; gap: 4px;
-  }
-
-  .hm-stat-label {
-    font-size: 0.73rem; font-weight: 700; color: #aaa;
-    text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px;
-  }
-
-  .hm-stat-value {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800; font-size: 2rem; color: #111; line-height: 1;
-  }
-
-  .hm-stat-value span { font-size: 1rem; font-weight: 600; color: #555; }
-
-  .hm-stat-tag {
-    display: inline-block; font-size: 0.7rem; font-weight: 700;
-    padding: 3px 10px; border-radius: 6px; margin-top: 6px; align-self: flex-start;
-  }
-
+  .hm-stat { background: #f8f8f8; border-radius: 14px; padding: 18px 20px; }
+  .hm-stat-label { font-size: 0.73rem; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+  .hm-stat-value { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.7rem; color: #111; line-height: 1; }
+  .hm-stat-value span { font-size: 0.9rem; font-weight: 600; }
+  .hm-stat-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 6px; margin-top: 8px; }
   .hm-tag-g { background: ${GL}; color: ${GD}; }
   .hm-tag-b { background: #e6f1fb; color: #185fa5; }
 
-  .hm-form-card {
-    background: #fff; border: 1.5px solid #efefef;
-    border-radius: 18px; padding: 26px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
-  }
-
-  .hm-form-card-title {
-    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem;
-    color: #111; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 8px;
-    padding-bottom: 16px; border-bottom: 1px solid #f5f5f5;
-  }
+  .hm-form-card { background: #fff; border: 1px solid #efefef; border-radius: 16px; padding: 24px; }
+  .hm-form-card-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.95rem; color: #111; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
 
   .hm-trip-tabs { display: flex; gap: 4px; background: #f4f4f4; border-radius: 12px; padding: 4px; margin-bottom: 20px; }
 
@@ -244,80 +212,40 @@ const styles = `
 
   .hm-driver-banner {
     display: flex; align-items: center; gap: 16px;
-    background: linear-gradient(135deg, ${G} 0%, #1fa360 100%);
-    border-radius: 18px; padding: 20px 24px; cursor: pointer;
-    box-shadow: 0 4px 20px rgba(61,190,122,0.25);
+    background: linear-gradient(135deg, ${G} 0%, ${GD} 100%);
+    border-radius: 16px; padding: 18px 22px; cursor: pointer;
   }
 
   .hm-driver-icon {
-    width: 52px; height: 52px; background: rgba(255,255,255,0.2);
+    width: 48px; height: 48px; background: rgba(255,255,255,0.2);
     border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; flex-shrink: 0;
+    font-size: 1.4rem; flex-shrink: 0;
   }
 
   .hm-driver-text { flex: 1; }
-  .hm-driver-text h4 {
-    font-family: 'Poppins', sans-serif; font-weight: 700;
-    font-size: 1rem; color: #fff; margin-bottom: 4px;
-  }
-  .hm-driver-text p { font-size: 0.8rem; color: rgba(255,255,255,0.85); }
+  .hm-driver-text h4 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.95rem; color: #fff; margin-bottom: 3px; }
+  .hm-driver-text p { font-size: 0.78rem; color: rgba(255,255,255,0.85); }
 
   .hm-call-btn {
     background: #3B5BDB; color: #fff; border: none; border-radius: 11px;
-    padding: 12px 22px; font-family: 'Poppins', sans-serif;
-    font-weight: 700; font-size: 0.88rem; cursor: pointer;
+    padding: 11px 20px; font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 0.85rem; cursor: pointer;
     display: flex; align-items: center; gap: 8px; flex-shrink: 0;
-    transition: background 0.15s; box-shadow: 0 3px 10px rgba(59,91,219,0.3);
+    transition: background 0.15s;
   }
 
   .hm-call-btn:hover { background: #2f4abf; }
 
-  /* ── Placeholder / Login prompt pages ── */
+  /* Placeholder pages */
   .hm-placeholder {
     flex: 1; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    padding: 32px;
+    gap: 14px; color: #bbb;
   }
 
-  .hm-placeholder-card {
-    background: #fff;
-    border: 1px solid #efefef;
-    border-radius: 20px;
-    padding: 48px 40px;
-    display: flex; flex-direction: column;
-    align-items: center; gap: 14px;
-    max-width: 420px; width: 100%;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    text-align: center;
-  }
-
-  .hm-placeholder-icon {
-    width: 72px; height: 72px;
-    background: ${GL};
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; margin-bottom: 4px;
-  }
-
-  .hm-placeholder-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800; font-size: 1.2rem; color: #111;
-  }
-
-  .hm-placeholder-sub { font-size: 0.88rem; color: #aaa; line-height: 1.6; }
-
-  .hm-placeholder-login {
-    margin-top: 8px;
-    width: 100%; padding: 14px;
-    background: ${G}; color: #fff;
-    border: none; border-radius: 12px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700; font-size: 0.95rem;
-    cursor: pointer; transition: background 0.15s;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-
-  .hm-placeholder-login:hover { background: ${GD}; }
+  .hm-placeholder-icon { font-size: 3rem; }
+  .hm-placeholder-title { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.1rem; color: #555; }
+  .hm-placeholder-sub { font-size: 0.85rem; color: #aaa; }
 
   @keyframes hmFade {
     from { opacity: 0; transform: translateY(10px); }
@@ -330,40 +258,37 @@ const styles = `
   .hm-body > *:nth-child(3) { animation-delay: 0.20s; }
 `;
 
+
+
 const TRIPS = ["Single / Round Trip", "Hourly Package", "Outstation"];
 
 const NAV_ITEMS = [
   { icon: "🏠", label: "Dashboard" },
   { icon: "🗺️", label: "My Rides" },
   { icon: "🕐", label: "History" },
+  { icon: "⚙️", label: "Settings" },
 ];
 
 const PAGE_META = [
-  { title: "Book a Ride", sub: "Where would you like to go today?" },
-  { title: "My Rides",    sub: "Your current and upcoming rides" },
-  { title: "History",     sub: "All your past trips" },
+  { title: "Book a Ride",  sub: "Where would you like to go today?" },
+  { title: "My Rides",     sub: "Your current and upcoming rides" },
+  { title: "History",      sub: "All your past trips" },
+  { title: "Pricing",      sub: "Plans & pricing information" },
+  { title: "Drivers",      sub: "Find active drivers near you" },
+  { title: "Settings",     sub: "Manage your account preferences" },
 ];
 
-function PlaceholderPage({ icon, label, sub, onLogin }) {
+function PlaceholderPage({ icon, label }) {
   return (
     <div className="hm-placeholder">
-      <div className="hm-placeholder-card">
-        <div className="hm-placeholder-icon">{icon}</div>
-        <div className="hm-placeholder-title">{label}</div>
-        <div className="hm-placeholder-sub">
-          {sub}<br />Please login to access this section.
-        </div>
-        <button className="hm-placeholder-login" onClick={onLogin}>
-          👤 Login / Sign Up
-        </button>
-      </div>
+      <div className="hm-placeholder-icon">{icon}</div>
+      <div className="hm-placeholder-title">{label}</div>
+      <div className="hm-placeholder-sub">This section is coming soon.</div>
     </div>
   );
 }
 
 export default function Home() {
-  const navigate = useNavigate();
-
   const [activeNav,  setActiveNav]  = useState(0);
   const [tripTab,    setTripTab]    = useState(0);
   const [roundTrip,  setRoundTrip]  = useState(false);
@@ -373,7 +298,10 @@ export default function Home() {
   const [time,       setTime]       = useState("");
 
   const isReady = dropoff.trim().length > 0;
+
   const { title, sub } = PAGE_META[activeNav];
+
+  const naivgate = useNavigate();
 
   return (
     <>
@@ -391,7 +319,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
           <div className="hm-sb-nav">
             {NAV_ITEMS.map((item, i) => (
               <button
@@ -404,9 +331,8 @@ export default function Home() {
               </button>
             ))}
           </div>
-
           <div className="hm-sb-footer">
-            <button className="hm-sb-login-btn" onClick={() => navigate("/login")}>
+            <button className="hm-sb-login-btn" onClick={() => naivgate("/login")}>
               👤 Login / Sign Up
             </button>
           </div>
@@ -429,7 +355,7 @@ export default function Home() {
             )}
           </div>
 
-          {/* ── Dashboard ── */}
+          {/* ── Dashboard / Book a Ride ── */}
           {activeNav === 0 && (
             <div className="hm-body" key="dashboard">
               <div className="hm-stats">
@@ -437,6 +363,11 @@ export default function Home() {
                   <div className="hm-stat-label">Starting Fare</div>
                   <div className="hm-stat-value">₹11<span>/km</span></div>
                   <div className="hm-stat-tag hm-tag-g">Lowest in city</div>
+                </div>
+                <div className="hm-stat">
+                  <div className="hm-stat-label">Happy Customers</div>
+                  <div className="hm-stat-value">5,000+</div>
+                  <div className="hm-stat-tag hm-tag-g">And growing</div>
                 </div>
                 <div className="hm-stat">
                   <div className="hm-stat-label">Availability</div>
@@ -506,14 +437,9 @@ export default function Home() {
             </div>
           )}
 
-          {/* ── Other Pages — Login prompt ── */}
+          {/* ── Other Pages ── */}
           {activeNav !== 0 && (
-            <PlaceholderPage
-              icon={NAV_ITEMS[activeNav].icon}
-              label={NAV_ITEMS[activeNav].label}
-              sub={PAGE_META[activeNav].sub}
-              onLogin={() => navigate("/login")}
-            />
+            <PlaceholderPage icon={NAV_ITEMS[activeNav].icon} label={NAV_ITEMS[activeNav].label} />
           )}
 
         </div>
